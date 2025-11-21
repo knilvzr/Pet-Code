@@ -3,6 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-color: #fffaf5;
+    zoom: 95%;
 }
 
 /* Cabeçalho */
@@ -244,6 +245,215 @@ footer {
     font-size: 0.95em;
     }
 
+
+/* ===================== COMPARAÇÃO DE PET SHOPS ===================== */
+#comparacao-petshops {
+   
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff8f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#comparacao-petshops h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#comparacao-petshops p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* ===================== FORMULÁRIO DE BUSCA ===================== */
+#comparacao-petshops .formulario-busca {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#comparacao-petshops  {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    flex: 1;
+}
+
+#comparacao-petshops label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#comparacao-petshops input,
+#comparacao-petshops select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+#comparacao-petshops #botao-busca {
+    padding: 10px 20px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#comparacao-petshops #botao-busca:hover {
+    background-color: #ff9966;
+    transform: translateY(-2px);
+}
+
+/* ===================== FILTROS ===================== */
+#filtros-comparacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#filtros-comparacao .opcoes-ordenacao {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#filtros-comparacao .botao-ordenacao {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff7f50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#filtros-comparacao .botao-ordenacao:hover {
+    background-color: #ff9966;
+    transform: translateY(-2px);
+}
+
+#filtros-comparacao .botao-ordenacao.ativo {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+#filtros-comparacao .info-resultados {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px;
+}
+
+
+
+
+
+/* ===================== CARDS PETSHOPS ===================== */
+.grade-resultados {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-petshop {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-petshop:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.cabecalho-card {
+    background-color: #ff7f50;
+    color: white;
+    padding: 12px 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.corpo-card {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.servico {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.servico:last-child {
+    border-bottom: none;
+}
+
+.preco.na {
+    color: #999;
+    font-style: italic;
+}
+
+.rodape-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: #f9f9f9;
+}
+
+.btn-visitar {
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    background-color: #ff7f50;
+    transition: background-color 0.3s;
+}
+
+.btn-visitar:hover {
+    background-color: #ff9966;
+}
+
+.btn-ligar {
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    background-color: #4caf50;
+    transition: background-color 0.3s;
+}
+
+.btn-ligar:hover {
+    background-color: #66bb6a;
+}
+
+
+
+
+
+
+
+    
 /* Resposividade e ajustes gerais */
 @media(max-width: 768px){
     .header .container,

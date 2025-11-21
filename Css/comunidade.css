@@ -1,0 +1,499 @@
+
+/* =============================== */
+/* ESTILO GERAL */
+/* =============================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #fffaf5;
+    zoom: 95%;
+}
+
+/* =============================== */
+/* HEADER */
+/* =============================== */
+
+/* Cabeçalho */
+.header {
+    background-color: #ff7f50;
+    color: white;
+    padding: 15px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header a:hover {
+    text-decoration: none;
+}
+
+/* === Área da logo e texto === */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 10px; /* espaçamento entre imagem e texto */
+}
+
+.pet__logo {
+    width: 60px;  /* diminui um pouco pra equilibrar */
+    height: auto;
+    margin: 0; /* remove centralização anterior */
+}
+
+.logo {
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Ajustes no header existente  */
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: none;
+}
+
+
+/* =============================== */
+/* TITULAÇÕES GERAIS */
+/* =============================== */
+
+h2 {
+    color: #ff7f50;
+    text-align: center;
+    font-size: 2em;
+}
+
+h3 {
+    color: #ff7f50;
+}
+
+/* =============================== */
+/* SEÇÃO SOBRE • plataforma */
+/* =============================== */
+
+.sobre-petcode {
+    background: #fff8f0;
+    padding: 25px;
+    margin: 25px auto;
+    width: 70%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.sobre-petcode p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* =============================== */
+/* RECURSOS PRINCIPAIS */
+/* =============================== */
+
+.recursos-principais {
+    width: 50%;
+    margin: auto;
+}
+
+.recursos-principais .recurso {
+    background: #fff8f0;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+/* =============================== */
+/* CADASTRO DE PETS */
+/* =============================== */
+
+.cadastro-pet {
+    width: 60%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fff8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Título */
+.cadastro-pet h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff7f50;
+}
+
+/* Labels */
+.cadastro-pet label {
+    font-weight: bold;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Inputs e selects */
+.cadastro-pet input,
+.cadastro-pet select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ffbda7;
+    background: #fffdfb;
+    outline: none;
+    transition: 0.2s;
+}
+
+.cadastro-pet input:focus,
+.cadastro-pet select:focus {
+    border-color: #ff7f50;
+    box-shadow: 0 0 5px rgba(255,127,80,0.4);
+}
+
+/* Checkboxes */
+.servicos-checkbox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 20px;
+    padding: 10px;
+    background: #fff3e8;
+    border-radius: 10px;
+    border: 1px solid #ffd5c7;
+}
+
+.servicos-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+
+.servicos-checkbox input {
+    width: auto;
+}
+
+/* Botão */
+.cadastro-pet button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: #ff7f50;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cadastro-pet button:hover {
+    background: #ff986c;
+}
+
+
+/* =============================== */
+/* FUNCIONALIDADES (DL, DT, DD) */
+/* =============================== */
+
+.funcionalidades {
+    width: 90%;
+    margin: 25px auto;
+    padding: 25px;
+    background: #fff8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.funcionalidades dt {
+    font-weight: bold;
+    color: #ff7f50;
+    margin-top: 15px;
+}
+
+.funcionalidades dd {
+    background:  #f9a277;
+    border-left: 4px solid #ff7f50;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* =============================== */
+/* VÍDEOS */
+/* =============================== */
+
+.videos-conscientizacao {
+    width: 90%;
+    margin: auto;
+
+    display: flex;           /* coloca um ao lado do outro */
+    gap: 20px;               /* espaço entre os vídeos */
+    justify-content: center; /* centraliza */
+    flex-wrap: wrap;         /* quebra linha no celular */
+}
+
+.video {
+    flex: 1;
+    min-width: 280px;        /* garante que não fique pequeno demais */
+    max-width: 400px;        /* largura ideal */
+}
+
+.video iframe,
+.video video {
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+
+.forum {
+    width: 90%;
+    margin: 25px auto;
+    padding: 25px;
+    background: #fff8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.forum form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.forum input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ffccbb;
+    background: #fffdfb;
+}
+
+.forum button {
+    background: #ff7f50;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.forum button:hover {
+    background: #ff9966;
+}
+
+details.pergunta {
+    background: #f9a277;
+    padding: 10px;
+    border-left: 5px solid #ff7f50;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* =============================== */
+/* DICAS E EDUCAÇÃO */
+/* =============================== */
+
+.dicas-educacao {
+    width: 90%;
+    margin: auto;
+}
+
+.dicas-educacao details {
+    background-color: #fff8f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ffccbb;
+}
+
+.dicas-educacao summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #ff7f50;
+}
+
+/* =============================== */
+/* NEWSLETTER */
+/* =============================== */
+
+.newsletter {
+    text-align: center;
+    padding: 25px;
+    background: #fff8f0;
+    width: 80%;
+    margin: 25px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.newsletter input {
+    width: 60%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ffccbb;
+    background: #fffdfb;
+    margin-top: 10px;
+}
+
+.newsletter button {
+    margin-top: 10px;
+    background: #ff7f50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background: #ff9966;
+}
+
+/* =============================== */
+/* DOAÇÕES */
+/* =============================== */
+
+.doacoes {
+    width: 90%;
+    margin: auto;
+    padding: 25px;
+}
+
+.doacoes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.doacoes li {
+    background: #fff8f0;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.doacoes a {
+    color: #ff7f50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =============================== */
+/* BOTÕES GERAIS */
+/* =============================== */
+
+.btn {
+    background-color: #ff7f50;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #ff9966;
+}
+
+/* =============================== */
+/* FOOTER */
+/* =============================== */
+
+footer {
+    background-color: #ff7f50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    }
+
+    footer p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    }
+
+
+/* =============================== */
+/* RESPONSIVIDADE */
+/* =============================== */
+
+@media (max-width: 768px) {
+
+    .nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .recursos-principais .recurso,
+    .sobre-petcode,
+    .cadastro-pet,
+    .funcionalidades,
+    .newsletter,
+    .videos-conscientizacao,
+    .forum,
+    .dicas-educacao {
+        padding: 15px;
+    }
+
+    .newsletter input {
+        width: 90%;
+    }
+
+    .forum form {
+        flex-direction: column;
+    }
+}

@@ -3,671 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetPrice - Compare preços de pet shops</title>
-    <style>
-        :root {
-            --primary-color: #4a6fa5;
-            --secondary-color: #6b8cbc;
-            --accent-color: #ff914d;
-            --light-color: #f5f7fa;
-            --dark-color: #333;
-            --success-color: #4caf50;
-            --warning-color: #ff9800;
-            --danger-color: #f44336;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-        }
-        
-        .logo-icon {
-            font-size: 2rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .search-section {
-            background-color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-        
-        .search-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr auto;
-            gap: 15px;
-            align-items: end;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .form-group label {
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        input, select {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-        
-        button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #e67e22;
-        }
-        
-        .filters {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            align-items: center;
-        }
-        
-        .sort-options {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .sort-btn {
-            background-color: white;
-            color: var(--dark-color);
-            border: 1px solid #ddd;
-        }
-        
-        .sort-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
-        .results-info {
-            color: #666;
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 2rem;
-        }
-        
-        .pet-shop-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .pet-shop-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card-header {
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .pet-shop-name {
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        
-        .distance {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 3px 8px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .card-body {
-            padding: 15px;
-        }
-        
-        .service {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .service:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .service-name {
-            font-weight: 500;
-        }
-        
-        .price {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-        
-        .price.na {
-            color: #999;
-            font-style: italic;
-        }
-        
-        .card-footer {
-            padding: 15px;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .action-btn {
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-        
-        .visit-btn {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .call-btn {
-            background-color: var(--success-color);
-            color: white;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-section a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #444;
-            color: #aaa;
-        }
-        
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .search-form {
-                grid-template-columns: 1fr;
-            }
-            
-            .filters {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-            
-            .sort-options {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-    </style>
+    <title>Serviços | Pet-code</title>
+    <link rel="icon" href="Imagens/novo-logo.png" type="image/png">
+    <link rel="stylesheet" href="Css/servicosstyle.css">
 </head>
+
 <body>
-    <header>
+
+    <header class="cabecalho">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🐾</span>
-                    <h1>PetPrice</h1>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Serviços</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </nav>
-            </div>
+          <a href="index.html" class="marca-nav">
+            <img class="logo-pet" src="Imagens/novo-logo.png" alt="Logo Pet" />
+            <h1 class="titulo-logo">Pet-code</h1>
+          </a>
+      
+          <nav class="nav">
+            <ul>
+              <li><a href="index.html">Início</a></li>
+              <li><a href="serviços.html">Serviços</a></li>
+              <li><a href="cadastro.html">Cadastrar</a></li>
+              <li><a href="comunidade.html">Comunidade</a></li>
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </nav>
         </div>
     </header>
 
     <main class="container">
-        <section class="search-section">
-            <h2>Encontre os melhores preços para seu pet</h2>
-            <p>Compare preços de banho, tosa, vacinação e outros serviços em pet shops próximos a você.</p>
-            
-            <form class="search-form">
-                <div class="form-group">
-                    <label for="service">Serviço</label>
-                    <select id="service">
-                        <option value="all">Todos os serviços</option>
-                        <option value="bath">Banho</option>
-                        <option value="grooming">Tosa</option>
-                        <option value="vaccine">Vacinação</option>
-                        <option value="consultation">Consulta veterinária</option>
-                        <option value="hotel">Hospedagem</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="location">Localização</label>
-                    <input type="text" id="location" placeholder="Digite seu CEP ou endereço">
-                </div>
-                
-                <button type="button" id="search-btn">Buscar</button>
-            </form>
-        </section>
-        
-        <section class="results-section">
-            <div class="filters">
-                <div class="sort-options">
-                    <button class="sort-btn" data-sort="price-desc">Maior preço</button>
-                    <button class="sort-btn" data-sort="price-asc">Menor preço</button>
-                    <button class="sort-btn active" data-sort="distance">Menor distância</button>
-                </div>
-                
-                <div class="results-info">
-                    Mostrando <span id="results-count">6</span> resultados
-                </div>
+        <!--servicos oferecidos -->
+        <section id="servicos-oferecidos">
+            <h2><img src="Imagens/icons8-search-50.png" alt="Ícone Lupa">Encontre o Serviço Ideal para o seu Pet</h2>
+            <p>
+                A <strong>Pet-code</strong> é um projeto acadêmico desenvolvido com o objetivo de 
+                <strong>centralizar informações</strong> sobre serviços e instituições voltadas ao cuidado animal. 
+                Não realizamos atendimentos diretamente, mas indicamos locais e parceiros confiáveis em Mogi das Cruzes e região.
+            </p>
+
+            <div class="lista-servicos">
+                <h3>Cuidados Essenciais e Saúde</h3>
+                <ul>
+                    <li><strong>Clínicas e Hospitais Veterinários:</strong> Informações sobre atendimento público e particular, incluindo emergências.</li>
+                    <li><strong>Petshops:</strong> Locais com serviços de banho, tosa e venda de produtos.</li>
+                    <li><strong>Farmácias Veterinárias:</strong> Endereços e contatos rápidos para compra de medicamentos.</li>
+                    <li><strong>Campanhas de Saúde:</strong> Vacinação e castração promovidas por ONGs e pela Prefeitura.</li>
+                </ul>
+
+                <h3>Bem-Estar e Convivência</h3>
+                <ul>
+                    <li><strong>Adestradores e Passeadores:</strong> Profissionais indicados pela comunidade de tutores.</li>
+                    <li><strong>Hotéis e Day Care:</strong> Espaços de hospedagem e recreação avaliados por usuários.</li>
+                </ul>
+
+                <h3>ONGs e Adoção</h3>
+                <ul>
+                    <li><strong>ONGs Parceiras:</strong> Instituições que realizam resgates, adoções e campanhas de conscientização.</li>
+                    <li><strong>Abrigos e Voluntariado:</strong> Locais onde você pode se envolver e ajudar animais em situação de risco.</li>
+                    <li><strong>Relatórios de Maus-Tratos:</strong> A Pet-code não é um órgão fiscalizador, mas oferece um <strong>guia com contatos oficiais</strong> para denúncias seguras junto à autoridade policial ou prefeitura.</li>
+                </ul>
             </div>
-            
-            <div class="results-grid" id="results-container">
-                <!-- Os cards de pet shops serão inseridos aqui via JavaScript -->
-            </div>
+
+            <!-- mapa= -->
+            <section id="mapa">
+                <h2>Serviços e ONGs em Mogi das Cruzes</h2>
+                <p>Clique em uma das opções abaixo para visualizar no mapa os principais locais e instituições da cidade:</p>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7316.928499803407!2d-46.18902708771456!3d-23.515799164971074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7b7e1f6a37d5%3A0xd0b2523effde0064!2sUniversidade%20de%20Mogi%20das%20Cruzes!5e0!3m2!1spt-BR!2sbr!4v1762467389667!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <div class="botoes-mapa-acao">
+                    <a href="https://maps.app.goo.gl/YuyNqh7depi81x1F6" target="_blank" class="btn-primario-mapa">
+                        <img src="Imagens/icons8-hospital-48.png" alt="Ícone hospital"> Clínicas e Hospitais Veterinários
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/ihecEM5cDUy6BNfj9" target="_blank" class="btn-primario-mapa">
+                        <img src="Imagens/icons8-remedy-64.png" alt="Ícone remédio"> Farmácias Veterinárias
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/LZmzcGd3JURzxWgM7" target="_blank" class="btn-primario-mapa">
+                        <img src="Imagens/icons8-dog-48.png" alt="Ícone cachorro peludo"> Petshops e Tosa
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/EGm2NN7SQCVKq3dd7" target="_blank" class="btn-primario-mapa">
+                        <img src="Imagens/icons8-vaccine-64.png" alt="Ícone vacina"> Campanha de Saúde
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/DxyyTpeQQTRewcon9" target="_blank" class="btn-primario-mapa">
+                        <img src="Imagens/icons8-dog-64.png" alt="Ícone cachorro"> Adestradores e Passeadores
+                    </a>
+
+                    <a href="https://maps.app.goo.gl/okPFDbZrVNC8NVjx7" target="_blank" class="btn-primario-mapa">
+                        <img src="Imagens/icons8-paws-64.png" alt="Ícone patas"> ONGs e Abrigos Parceiros
+                    </a>
+                </div>
+
+                <a href="cadastro.html" class="btn-secundario">Quer ser parceiro da Pet-code? Cadastre sua instituição!</a>
+            </section>
         </section>
+
+        <!-- petshop -->
+<section id="comparacao-petshops">
+    <h2>Compare preços de pet shops em Mogi</h2>
+    <p>Compare preços de banho, tosa, vacinação e outros serviços em pet shops próximos.</p>
+
+    <form class="formulario-busca">
+        <div class="grupo-formulario">
+            <label for="servico">Serviço</label>
+            <select id="servico">
+                <option value="todos">Todos os serviços</option>
+                <option value="banho">Banho</option>
+                <option value="tosa">Tosa</option>
+                <option value="vacina">Vacinação</option>
+                <option value="consulta">Consulta veterinária</option>
+                <option value="hospedagem">Hospedagem</option>
+            </select>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="localizacao">Localização</label>
+            <input type="text" id="localizacao" placeholder="Digite seu CEP ou endereço">
+        </div>
+
+        <button type="button" id="botao-busca">Buscar</button>
+    </form>
+
+    <div id="filtros-comparacao">
+        <div class="opcoes-ordenacao">
+            <button class="botao-ordenacao ativo" data-sort="distancia">Mais Próximos</button>
+            <button class="botao-ordenacao" data-sort="preco-crescente">Preço Crescente</button>
+            <button class="botao-ordenacao" data-sort="preco-decrescente">Preço Decrescente</button>
+        </div>
+        <div class="info-resultados">
+            Resultados encontrados: <span id="contador-resultados">0</span>
+        </div>
+    </div>
+
+    <div id="container-resultados" class="grade-resultados"></div>
+</section>
+
+
+            <div id="container-resultados" class="grade-resultados"></div>
+        </section>
+
     </main>
 
+    <script src="Js/servicos.js"></script>
+
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>PetPrice</h3>
-                    <p>Encontre os melhores preços para serviços de pet shop na sua região.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Serviços</a></li>
-                        <li><a href="#">Sobre nós</a></li>
-                        <li><a href="#">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <ul>
-                        <li>Email: contato@petprice.com</li>
-                        <li>Telefone: (11) 1234-5678</li>
-                        <li>Endereço: Rua dos Pets, 123 - São Paulo, SP</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                &copy; 2023 PetPrice. Todos os direitos reservados.
-            </div>
+        <div class="copyright">
+            <p><strong>Projeto Acadêmico UMC - Pet-code</strong> | Mogi das Cruzes - SP</p>
+            <p>Integrantes: Ana Julia Pinheiro da Silva, Giovanni Almeida Santos, Evelyn Kraus dos Santos.</p>
+            <p>&copy; 2025 Pet-code | Incentivando a Conscientização e o Cuidado Animal.</p>
         </div>
     </footer>
 
-    <script>
-        // Dados de exemplo para demonstração
-        const petShops = [
-            {
-                id: 1,
-                name: "Pet Shop do Bairro",
-                distance: 1.2,
-                services: [
-                    { name: "Banho", price: 45.00 },
-                    { name: "Tosa", price: 60.00 },
-                    { name: "Vacinação", price: null },
-                    { name: "Consulta", price: 80.00 }
-                ],
-                website: "https://exemplo1.com",
-                phone: "(11) 1111-1111"
-            },
-            {
-                id: 2,
-                name: "Cão & Cia",
-                distance: 2.5,
-                services: [
-                    { name: "Banho", price: 40.00 },
-                    { name: "Tosa", price: 55.00 },
-                    { name: "Vacinação", price: 70.00 },
-                    { name: "Consulta", price: 90.00 }
-                ],
-                website: "https://exemplo2.com",
-                phone: "(11) 2222-2222"
-            },
-            {
-                id: 3,
-                name: "Amigo Pet",
-                distance: 0.8,
-                services: [
-                    { name: "Banho", price: 50.00 },
-                    { name: "Tosa", price: 65.00 },
-                    { name: "Vacinação", price: 75.00 },
-                    { name: "Consulta", price: 85.00 }
-                ],
-                website: "https://exemplo3.com",
-                phone: "(11) 3333-3333"
-            },
-            {
-                id: 4,
-                name: "Pet Luxury",
-                distance: 3.1,
-                services: [
-                    { name: "Banho", price: 60.00 },
-                    { name: "Tosa", price: 80.00 },
-                    { name: "Vacinação", price: null },
-                    { name: "Consulta", price: 120.00 }
-                ],
-                website: "https://exemplo4.com",
-                phone: "(11) 4444-4444"
-            },
-            {
-                id: 5,
-                name: "Veterinária Central",
-                distance: 1.8,
-                services: [
-                    { name: "Banho", price: null },
-                    { name: "Tosa", price: null },
-                    { name: "Vacinação", price: 65.00 },
-                    { name: "Consulta", price: 75.00 }
-                ],
-                website: "https://exemplo5.com",
-                phone: "(11) 5555-5555"
-            },
-            {
-                id: 6,
-                name: "Pet Feliz",
-                distance: 2.9,
-                services: [
-                    { name: "Banho", price: 35.00 },
-                    { name: "Tosa", price: 50.00 },
-                    { name: "Vacinação", price: 60.00 },
-                    { name: "Consulta", price: 70.00 }
-                ],
-                website: "https://exemplo6.com",
-                phone: "(11) 6666-6666"
-            }
-        ];
-
-        // Elementos DOM
-        const resultsContainer = document.getElementById('results-container');
-        const sortButtons = document.querySelectorAll('.sort-btn');
-        const searchButton = document.getElementById('search-btn');
-        const serviceSelect = document.getElementById('service');
-        const resultsCount = document.getElementById('results-count');
-
-        // Função para renderizar os cards de pet shops
-        function renderPetShops(petShopsToRender) {
-            resultsContainer.innerHTML = '';
-            
-            if (petShopsToRender.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="no-results">
-                        <h3>Nenhum pet shop encontrado</h3>
-                        <p>Tente ajustar os filtros de busca.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            petShopsToRender.forEach(petShop => {
-                const card = document.createElement('div');
-                card.className = 'pet-shop-card';
-                
-                let servicesHTML = '';
-                petShop.services.forEach(service => {
-                    const priceDisplay = service.price ? 
-                        `R$ ${service.price.toFixed(2)}` : 
-                        '<span class="price na">N/A</span>';
-                    
-                    servicesHTML += `
-                        <div class="service">
-                            <span class="service-name">${service.name}</span>
-                            <span class="price">${priceDisplay}</span>
-                        </div>
-                    `;
-                });
-                
-                card.innerHTML = `
-                    <div class="card-header">
-                        <span class="pet-shop-name">${petShop.name}</span>
-                        <span class="distance">${petShop.distance} km</span>
-                    </div>
-                    <div class="card-body">
-                        ${servicesHTML}
-                    </div>
-                    <div class="card-footer">
-                        <a href="${petShop.website}" target="_blank" class="action-btn visit-btn">Visitar Site</a>
-                        <a href="tel:${petShop.phone}" class="action-btn call-btn">Ligar</a>
-                    </div>
-                `;
-                
-                resultsContainer.appendChild(card);
-            });
-            
-            resultsCount.textContent = petShopsToRender.length;
-        }
-
-        // Função para ordenar os pet shops
-        function sortPetShops(sortType, petShopsToSort) {
-            const sortedPetShops = [...petShopsToSort];
-            
-            switch(sortType) {
-                case 'price-desc':
-                    // Ordenar por maior preço (considerando apenas serviços com preço disponível)
-                    sortedPetShops.sort((a, b) => {
-                        const aAvgPrice = calculateAveragePrice(a);
-                        const bAvgPrice = calculateAveragePrice(b);
-                        return bAvgPrice - aAvgPrice;
-                    });
-                    break;
-                    
-                case 'price-asc':
-                    // Ordenar por menor preço (considerando apenas serviços com preço disponível)
-                    sortedPetShops.sort((a, b) => {
-                        const aAvgPrice = calculateAveragePrice(a);
-                        const bAvgPrice = calculateAveragePrice(b);
-                        return aAvgPrice - bAvgPrice;
-                    });
-                    break;
-                    
-                case 'distance':
-                default:
-                    // Ordenar por menor distância
-                    sortedPetShops.sort((a, b) => a.distance - b.distance);
-                    break;
-            }
-            
-            return sortedPetShops;
-        }
-
-        // Função auxiliar para calcular preço médio
-        function calculateAveragePrice(petShop) {
-            const prices = petShop.services
-                .map(service => service.price)
-                .filter(price => price !== null);
-            
-            if (prices.length === 0) return 0;
-            
-            return prices.reduce((sum, price) => sum + price, 0) / prices.length;
-        }
-
-        // Função para filtrar por serviço
-        function filterByService(service, petShopsToFilter) {
-            if (service === 'all') return petShopsToFilter;
-            
-            const serviceMap = {
-                'bath': 'Banho',
-                'grooming': 'Tosa',
-                'vaccine': 'Vacinação',
-                'consultation': 'Consulta',
-                'hotel': 'Hospedagem'
-            };
-            
-            const serviceName = serviceMap[service];
-            
-            return petShopsToFilter.filter(petShop => 
-                petShop.services.some(s => s.name === serviceName && s.price !== null)
-            );
-        }
-
-        // Event listeners para os botões de ordenação
-        sortButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remover classe active de todos os botões
-                sortButtons.forEach(btn => btn.classList.remove('active'));
-                // Adicionar classe active ao botão clicado
-                button.classList.add('active');
-                
-                // Ordenar e renderizar
-                const sortedPetShops = sortPetShops(button.dataset.sort, petShops);
-                renderPetShops(sortedPetShops);
-            });
-        });
-
-        // Event listener para o botão de busca
-        searchButton.addEventListener('click', () => {
-            const selectedService = serviceSelect.value;
-            const filteredPetShops = filterByService(selectedService, petShops);
-            
-            // Obter o tipo de ordenação ativo
-            const activeSort = document.querySelector('.sort-btn.active').dataset.sort;
-            const sortedPetShops = sortPetShops(activeSort, filteredPetShops);
-            
-            renderPetShops(sortedPetShops);
-        });
-
-        // Inicializar a página
-        document.addEventListener('DOMContentLoaded', () => {
-            const initialPetShops = sortPetShops('distance', petShops);
-            renderPetShops(initialPetShops);
-        });
-    </script>
 </body>
 </html>

@@ -99,10 +99,60 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <p><strong>Projeto Acadêmico UMC - Pet-code</strong> | Mogi das Cruzes - SP</p>
-        <p>Integrantes: Ana Julia Pinheiro da Silva, Giovanni Almeida Santos, Evelyn Kraus dos Santos.</p>
-        <p>&copy; 2025 Pet-code | Incentivando a Conscientização e o Cuidado Animal.</p>
+        <!-- petshop -->
+<section id="comparacao-petshops">
+    <h2>Compare preços de pet shops em Mogi</h2>
+    <p>Compare preços de banho, tosa, vacinação e outros serviços em pet shops próximos.</p>
+
+    <form class="formulario-busca">
+        <div class="grupo-formulario">
+            <label for="servico">Serviço</label>
+            <select id="servico">
+                <option value="todos">Todos os serviços</option>
+                <option value="banho">Banho</option>
+                <option value="tosa">Tosa</option>
+                <option value="vacina">Vacinação</option>
+                <option value="consulta">Consulta veterinária</option>
+                <option value="hospedagem">Hospedagem</option>
+            </select>
+        </div>
+
+        <div class="grupo-formulario">
+            <label for="localizacao">Localização</label>
+            <input type="text" id="localizacao" placeholder="Digite seu CEP ou endereço">
+        </div>
+
+        <button type="button" id="botao-busca">Buscar</button>
+    </form>
+
+    <div id="filtros-comparacao">
+        <div class="opcoes-ordenacao">
+            <button class="botao-ordenacao ativo" data-sort="distancia">Mais Próximos</button>
+            <button class="botao-ordenacao" data-sort="preco-crescente">Preço Crescente</button>
+            <button class="botao-ordenacao" data-sort="preco-decrescente">Preço Decrescente</button>
+        </div>
+        <div class="info-resultados">
+            Resultados encontrados: <span id="contador-resultados">0</span>
+        </div>
+    </div>
+
+    <div id="container-resultados" class="grade-resultados"></div>
+</section>
+
+
+            <div id="container-resultados" class="grade-resultados"></div>
+        </section>
+
+    </main>
+
+    <script src="Js/servicos.js"></script>
+
+    <footer>
+        <div class="copyright">
+            <p><strong>Projeto Acadêmico UMC - Pet-code</strong> | Mogi das Cruzes - SP</p>
+            <p>Integrantes: Ana Julia Pinheiro da Silva, Giovanni Almeida Santos, Evelyn Kraus dos Santos.</p>
+            <p>&copy; 2025 Pet-code | Incentivando a Conscientização e o Cuidado Animal.</p>
+        </div>
     </footer>
 </body>
 </html>

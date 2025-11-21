@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade | Pet-code</title>
+    <link rel="icon" href="Imagens/novo-logo.png" type="image/png">
+    <link rel="stylesheet" href="Css/comunidade.css">
+</head>
+<body>
+
+    <!--HEADER  -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img class="pet__logo" src="Imagens/novo-logo.png" alt="Logo Pet" />
+                <h1 class="logo">Pet-code</h1>
+            </a>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="serviços.html">Serviços</a></li>
+                    <li><a href="login.php">Cadastrar</a></li>
+                    <li><a href="comunidade.html">Comunidade</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--plataforma -->
+    <section class="sobre-petcode">
+        <h2>O que é a Pet-code?</h2>
+        <p>
+            A Pet-code é uma <strong>plataforma digital</strong> que simplifica a vida dos tutores e promove maior integração na comunidade pet.
+            Permite encontrar serviços, instituições e informações confiáveis, além de incentivar práticas de cuidado, respeito e responsabilidade social.
+        </p>
+    </section>
+
+    <!-- ================= RECURSOS PRINCIPAIS ================= -->
+    <section class="recursos-principais">
+        <h2>Tutores conectados a pets e serviços</h2>
+
+        <div class="recurso">
+            <h3>Listagem de Serviços</h3>
+            <p>Encontre e avalie petshops, clínicas, hotéis, adestradores e passeadores por localização.</p>
+            <a href="serviços.html" class="btn">Acessar Serviços</a>
+        </div>
+
+        <div class="recurso">
+            <h3>Apoio a ONGs e Adoção</h3>
+            <p>Participe de campanhas de vacinação, castração e encontre pets para adoção responsável.</p>
+            <a href="serviços.html" class="btn">Conheça ONGs</a>
+        </div>
+
+        <div class="recurso">
+            <h3>Histórico e Personalização</h3>
+            <p>Cadastre seus pets para facilitar o acesso a históricos de saúde e serviços personalizados.</p>
+            <a href="#" class="btn">Ver Pets</a>
+        </div>
+    </section>
+
+    <!--cadastro petss -->
+    <section class="cadastro-pet">
+        <h2>Cadastro de Pets</h2>
+        <p>Cadastre seus pets para gerar um histórico básico e personalizar serviços.</p>
+
+        <form id="formPet">
+            <input type="text" id="nomePet" placeholder="Nome do pet" required>
+
+            <select id="especiePet" required>
+                <option value="">Selecione a espécie</option>
+                <option>Cachorro</option>
+                <option>Gato</option>
+                <option>Pássaro</option>
+                <option>Roedor</option>
+                <option>Outro</option>
+            </select>
+
+            <input type="number" id="idadePet" placeholder="Idade (anos)" min="0" required>
+
+            <label>Serviços utilizados:</label>
+
+            <div class="servicos-checkbox">
+                <label><input type="checkbox" value="Banho"> Banho</label>
+                <label><input type="checkbox" value="Tosa"> Tosa</label>
+                <label><input type="checkbox" value="Vacinação"> Vacinação</label>
+                <label><input type="checkbox" value="Consulta veterinária"> Consulta veterinária</label>
+                <label><input type="checkbox" value="Adestramento"> Adestramento</label>
+                <label><input type="checkbox" value="Passeio"> Passeio</label>
+            </div>
+
+            <button type="submit" class="btn">Cadastrar Pet</button>
+        </form>
+        <div id="listaPets"></div>
+    </section>
+
+    <!--funcionalidades -->
+    <section class="funcionalidades">
+        <h2>Funcionalidades da Pet-code</h2>
+
+        <dl>
+            <dt>Comunicação Integrada</dt>
+            <dd>
+                Facilitamos o contato direto entre tutores e prestadores através de perguntas e respostas,
+                permitindo um suporte mais personalizado.
+            </dd>
+
+            <dt>Gestão e Comunidade</dt>
+            <dd>
+                Combinamos a utilidade de um histórico pet, que otimiza o atendimento profissional,
+                com um espaço de comunidade vibrante (vídeos curtos) para troca de dicas, interação e diversão.
+            </dd>
+        </dl>
+    </section>
+
+    <!--videos -->
+    <section class="videos-conscientizacao">
+        <h2>Vídeos de Conscientização</h2>
+
+<section class="videos-conscientizacao">
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/SEUVIDEO1" allowfullscreen></iframe>
+    </div>
+
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/SEUVIDEO2" allowfullscreen></iframe>
+    </div>
+
+    <div class="video">
+        <iframe src="https://www.youtube.com/embed/SEUVIDEO3" allowfullscreen></iframe>
+    </div>
+</section>
+
+    </section>
+
+    <!-- pergunta e resposta-->
+    <section class="forum">
+        <h2>Perguntas e Respostas</h2>
+
+        <form id="formPergunta">
+            <input type="text" id="perguntaInput" placeholder="Faça uma pergunta..." required>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div id="listaPerguntas"></div>
+
+        <details class="pergunta">
+            <summary>Qual a melhor idade para castrar meu pet?</summary>
+            <div class="respostas">
+                <p>Normalmente entre 6 e 12 meses.</p>
+                <p>Consulte seu veterinário antes.</p>
+            </div>
+        </details>
+
+        <details class="pergunta">
+            <summary>Como socializar meu cachorro filhote?</summary>
+            <div class="respostas">
+                <p>Exponha o filhote a pessoas e ambientes de forma suave.</p>
+            </div>
+        </details>
+    </section>
+
+    <!-- dicas-->
+    <section class="dicas-educacao">
+        <h2>Dicas e Educação</h2>
+
+        <details>
+            <summary>Como manter a alimentação saudável</summary>
+            <p>Manter alimentação equilibrada é essencial para bem-estar e longevidade.</p>
+        </details>
+
+        <details>
+            <summary>Dicas de higiene</summary>
+            <p>Escove pelos, limpe unhas, ouvidos e dentes regularmente.</p>
+        </details>
+
+        <details>
+            <summary>Importância da vacinação</summary>
+            <p>Mantenha vacinas atualizadas e faça check-ups.</p>
+        </details>
+
+        <details>
+            <summary>Socialização e adestramento</summary>
+            <p>Introduza ambientes aos poucos e use reforço positivo.</p>
+        </details>
+
+        <details>
+            <summary>Proteção animal</summary>
+            <p>Conheça leis, evite maus-tratos e apoie adoção responsável.</p>
+        </details>
+    </section>
+
+    
+
+
+    <!-- doacoes -->
+    <section class="doacoes">
+        <h2>Contribua com ONGs e abrigos</h2>
+        <p>Ajude animais em necessidade com doações de ração, medicamentos ou valores.</p>
+
+        <ul>
+            <li>Campanha do Bem – <a href="https://campanhadobem.com.br/campanhas/castracao-dos-animais-de-rua">Doar agora</a></li>
+            <li>Adotar Animais – <a href="https://adotar.com.br/adocao-de-animais/">Doar agora</a></li>
+            <li>Pets Sem Fronteiras – <a href="https://petssemfronteiras.org.br/">Doar agora</a></li>
+        </ul>
+    </section>
+    <section class="newsletter">
+        <h2>Inscreva-se para receber novidades</h2>
+        <p>Receba dicas, campanhas e conteúdos exclusivos no seu e-mail.</p>
+
+        <form action="#" method="post">
+            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+            <button type="submit">Inscrever-se</button>
+        </form>
+    </section>
+    <!-- footer -->
+    <footer class="footer">
+        <p><strong>Projeto Acadêmico UMC - Pet-code</strong> | Mogi das Cruzes - SP</p>
+        <p>Integrantes: Ana Julia Pinheiro da Silva, Giovanni Almeida Santos, Evelyn Kraus dos Santos.</p>
+        <p>&copy; 2025 Pet-code | Incentivando a Conscientização e o Cuidado Animal.</p>
+    </footer>
+
+
+</body>
+</html>
