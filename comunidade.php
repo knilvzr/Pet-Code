@@ -20,6 +20,7 @@
         <div class="container">
             <a href="index.html" class="navbar-brand">
                 <img class="pet__logo" src="Imagens/novo-logo.png" alt="Logo Pet" />
+<
                 <h1>Pet-code</h1>
             </a>
 
