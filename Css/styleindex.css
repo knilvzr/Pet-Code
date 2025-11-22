@@ -6,6 +6,15 @@ body {
     zoom: 95%;
 }
 
+.nav ul li a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav ul li a:hover {
+    transform: scale(1.1);
+}
+
 /* Cabeçalho */
 .header {
     background-color: #ff7f50;
