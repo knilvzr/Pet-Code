@@ -4,7 +4,7 @@ $hostname = "localhost";
 $bancodedados = "login";
 $usuario = "root";
 $senha = "";
-$table_name = "usuarios"; // Mudei para o nome mais comum
+$table_name = "usuarios"; 
 
 function conectar_banco() {
     global $hostname, $usuario, $senha, $bancodedados;

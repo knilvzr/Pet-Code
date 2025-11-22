@@ -1,0 +1,9 @@
+.todo {
+    opacity: 0;
+    transition: 900ms ease;
+
+}
+
+.todo.show {
+    opacity: 1;
+}

@@ -6,6 +6,7 @@
     <title>Serviços | Pet-code</title>
     <link rel="icon" href="Imagens/novo-logo.png" type="image/png">
     <link rel="stylesheet" href="Css/servicosstyle.css">
+    <link rel="stylesheet" href="Css/todo.css">
 </head>
 
 <body>
@@ -30,17 +31,17 @@
       </header>
 
     <main class="container">
-        <section id="servicos-oferecidos">
-            <h2><img src="Imagens/icons8-search-50.png" alt="Ícone Lupa">Encontre o Serviço Ideal para o seu Pet</h2>
+        <section id="servicos-oferecidos" class="todo">
+            <h2 class="todo"><img src="Imagens/icons8-search-50.png" alt="Ícone Lupa">Encontre o Serviço Ideal para o seu Pet</h2>
             <p>
                 A <strong>Pet-code</strong> é um projeto acadêmico desenvolvido com o objetivo de 
                 <strong>centralizar informações</strong> sobre serviços e instituições voltadas ao cuidado animal. 
                 Não realizamos atendimentos diretamente, mas indicamos locais e parceiros confiáveis em Mogi das Cruzes e região.
             </p>
 
-            <div class="lista-servicos">
+            <div class="lista-servicos" class="todo">
                 <h3>Cuidados Essenciais e Saúde</h3>
-                <ul>
+                <ul class="todo">
                     <li><strong>Clínicas e Hospitais Veterinários:</strong> Informações sobre atendimento público e particular, incluindo emergências.</li>
                     <li><strong>Petshops:</strong> Locais com serviços de banho, tosa e venda de produtos.</li>
                     <li><strong>Farmácias Veterinárias:</strong> Endereços e contatos rápidos para compra de medicamentos.</li>
@@ -48,21 +49,21 @@
                 </ul>
 
                 <h3>Bem-Estar e Convivência</h3>
-                <ul>
+                <ul class="todo">
                     <li><strong>Adestradores e Passeadores:</strong> Profissionais indicados pela comunidade de tutores.</li>
                     <li><strong>Hotéis e Day Care:</strong> Espaços de hospedagem e recreação avaliados por usuários.</li>
                 </ul>
 
                 <h3>ONGs e Adoção</h3>
                 <ul>
-                    <li><strong>ONGs Parceiras:</strong> Instituições que realizam resgates, adoções e campanhas de conscientização.</li>
+                    <li class="todo"><strong>ONGs Parceiras:</strong> Instituições que realizam resgates, adoções e campanhas de conscientização.</li>
                     <li><strong>Abrigos e Voluntariado:</strong> Locais onde você pode se envolver e ajudar animais em situação de risco.</li>
                     <li><strong>Relatórios de Maus-Tratos:</strong> A Pet-code não é um órgão fiscalizador, 
                         mas oferece um <strong>guia com contatos oficiais</strong> para denúncias seguras junto à autoridade policial ou prefeitura.</li>
                 </ul>
             </div>
 
-            <section class="mapa">
+            <section class="mapa" class="todo">
                 <h2>Serviços e ONGs em Mogi das Cruzes</h2>
                 <p>Clique em uma das opções abaixo para visualizar no mapa os principais locais e instituições da cidade:</p>
 
@@ -100,7 +101,7 @@
     </main>
 
         <!-- petshop -->
-<section id="comparacao-petshops">
+<section id="comparacao-petshops" class="todo">
     <h2>Compare preços de pet shops em Mogi</h2>
     <p>Compare preços de banho, tosa, vacinação e outros serviços em pet shops próximos.</p>
 
@@ -125,7 +126,7 @@
         <button type="button" id="botao-busca">Buscar</button>
     </form>
 
-    <div id="filtros-comparacao">
+    <div id="filtros-comparacao" class="todo">
         <div class="opcoes-ordenacao">
             <button class="botao-ordenacao ativo" data-sort="distancia">Mais Próximos</button>
             <button class="botao-ordenacao" data-sort="preco-crescente">Preço Crescente</button>
@@ -146,6 +147,7 @@
     </main>
 
     <script src="Js/servicos.js"></script>
+    <script src="Js/scroll.js"></script>
 
     <footer>
         <div class="copyright">
